@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 #                              CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════════
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8664286238:AAFWmNnBUvIACNKqs9-MQwRkaQvEkzIW7BTg")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8713116904:AAEAfKm5KFAFj0X7DPH-3DD-WEl2Sx_RuF0")
 
 # Bot Owners - Environment variable se list lo
 DEFAULT_OWNERS = [8016491077, 8305984975, 5251460508]
