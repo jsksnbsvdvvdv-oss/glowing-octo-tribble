@@ -1,0 +1,41 @@
+name: 🔄 BOT KEEP ALIVE
+
+on:
+  schedule:
+    - cron: '*/240 * * * *'
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: 📦 Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install telebot requests
+    
+    - name: 🚀 Run Bot
+      env:
+        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        API_KEY: ${{ secrets.API_KEY }}
+        API_URL: ${{ secrets.API_URL }}
+        BOT_OWNERS: ${{ secrets.BOT_OWNERS }}
+      run: |
+        python new.py &
+        sleep 10
+    
+    - name: 💾 Keep Alive
+      run: |
+        while true; do
+          echo "✅ Bot is running at $(date)"
+          sleep 300
+        done
